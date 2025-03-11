@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    
-    
-});
+Route::get('/register', [AutController::class, 'index'])->name('register.show');
+Route::post('/register', [AutController::class, 'register'])->name('register');
+Route::get('/login', [AutController::class, 'show'])->name('login.show');
+Route::post('/login', [AutController::class, 'login'])->name('login');
+Route::post('/logout', [AutController::class, 'logout'])->name('logout');
